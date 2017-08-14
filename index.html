@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Jack and Eloise</title>
+  <title>Jack &amp; Eloise</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
@@ -58,33 +58,33 @@
 </head>
 <body class="avenir bg-black white">
   <div class="video-container">
-    <video autoplay loop preload="auto" class="video-board grayscale">
+    <video autoplay loop preload="auto" class="video-board grayscale dn-sm db-m">
       <source src="video/video-board.mp4" type="video/mp4">
     </video>
     
     <div class="keys tc w-100">
-      <h1 class="tc ttu tracked-mega">Jack and Eloise</h1>
-      <a data-key="65" data-iso-video="1-nice.mp4" class="key ba br-pill dib grow mb4 ph4 pv2 tc">
+      <h1 class="tc ttu tracked">Jack &amp; Eloise</h1>
+      <a onclick="openGIF(this)" data-gif="gif/1-nice.gif" data-key="65" data-iso-video="1-nice.mp4" class="key ba br-pill dib grow mb4 ph4 pv2 tc">
         <kbd class="f5 fw6">A</kbd>
         <span class="f7">Nice!</span>
       </a>
-      <a data-key="83" data-iso-video="2-uh-ta.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
+      <a onclick="openGIF(this)" data-gif="gif/2-uh-ta.gif" data-key="83" data-iso-video="2-uh-ta.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
         <kbd class="f5 fw6">S</kbd>
         <span class="f7">Uh, Ta!</span>
       </a>
-      <a data-key="68" data-iso-video="3-hi-gopro.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
+      <a onclick="openGIF(this)" data-gif="gif/3-hi-gopro.gif" data-key="68" data-iso-video="3-hi-gopro.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
         <kbd class="f5 fw6">D</kbd>
         <span class="f7">Hi, GoPro!</span>
       </a>
-      <a data-key="70" data-iso-video="4-ah.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
+      <a onclick="openGIF(this)" data-gif="gif/4-ah.gif" data-key="70" data-iso-video="4-ah.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
         <kbd class="f5 fw6">F</kbd>
         <span class="f7">Ah!</span>
       </a>
-      <a data-key="71" data-iso-video="5-laughing.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
+      <a onclick="openGIF(this)" data-gif="gif/5-laughing.gif" data-key="71" data-iso-video="5-laughing.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
         <kbd class="f5 fw6">G</kbd>
         <span class="f7">*laughing*</span>
       </a>
-      <a data-key="72" data-iso-video="6-cheese.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
+      <a onclick="openGIF(this)" data-gif="gif/6-cheese.gif" data-key="72" data-iso-video="6-cheese.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
         <kbd class="f5 fw6">H</kbd>
         <span class="f7">Cheese!</span>
       </a>
@@ -102,9 +102,7 @@
       const newVideo = key.getAttribute('data-iso-video');
       if (!newVideo) return;
       
-      for (i=0; i<keys.length; i++) {
-        keys[i].classList.remove('active');
-      }
+      keys.forEach(key => key.classList.remove('active'));
       key.classList.add('active');
       
       video.volume = .5;
@@ -115,12 +113,17 @@
       video.play();
     }
 
-    function test(e) {
-      console.log(e);
+    function openGIF(e) {
+      const file = e.getAttribute('data-gif');
+
+      video.remove();
+      document.body.setAttribute("style", `background: url('${file}') no-repeat center center; background-size: cover;`);
+      
+      keys.forEach(key => key.classList.remove('active'));
+      e.classList.add('active');
     }
 
     window.addEventListener('keydown', playVideo);
-    window.addEventListener('click', test);
   </script>
 
   <script>
