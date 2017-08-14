@@ -62,32 +62,32 @@
       <source src="video/video-board.mp4" type="video/mp4">
     </video>
     
-    <div class="keys">
+    <div class="keys tc w-100">
       <h1 class="tc ttu tracked-mega">Jack and Eloise</h1>
-      <div data-key="65" data-iso-video="1-nice.mp4" class="key ba br-pill dib grow mb4 ph4 pv2 tc">
+      <a data-key="65" data-iso-video="1-nice.mp4" class="key ba br-pill dib grow mb4 ph4 pv2 tc">
         <kbd class="f5 fw6">A</kbd>
         <span class="f7">Nice!</span>
-      </div>
-      <div data-key="83" data-iso-video="2-uh-ta.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
+      </a>
+      <a data-key="83" data-iso-video="2-uh-ta.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
         <kbd class="f5 fw6">S</kbd>
         <span class="f7">Uh, Ta!</span>
-      </div>
-      <div data-key="68" data-iso-video="3-hi-gopro.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
+      </a>
+      <a data-key="68" data-iso-video="3-hi-gopro.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
         <kbd class="f5 fw6">D</kbd>
         <span class="f7">Hi, GoPro!</span>
-      </div>
-      <div data-key="70" data-iso-video="4-ah.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
+      </a>
+      <a data-key="70" data-iso-video="4-ah.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
         <kbd class="f5 fw6">F</kbd>
         <span class="f7">Ah!</span>
-      </div>
-      <div data-key="71" data-iso-video="5-laughing.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
+      </a>
+      <a data-key="71" data-iso-video="5-laughing.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
         <kbd class="f5 fw6">G</kbd>
         <span class="f7">*laughing*</span>
-      </div>
-      <div data-key="72" data-iso-video="6-cheese.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
+      </a>
+      <a data-key="72" data-iso-video="6-cheese.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
         <kbd class="f5 fw6">H</kbd>
         <span class="f7">Cheese!</span>
-      </div>
+      </a>
     </div>
   </div>
 
@@ -98,7 +98,7 @@
     video.volume = 0;
 
     function playVideo(e) {
-      const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+      const key = document.querySelector(`a[data-key="${e.keyCode}"]`);
       const newVideo = key.getAttribute('data-iso-video');
       if (!newVideo) return;
       
@@ -115,7 +115,12 @@
       video.play();
     }
 
+    function test(e) {
+      console.log(e);
+    }
+
     window.addEventListener('keydown', playVideo);
+    window.addEventListener('click', test);
   </script>
 
   <script>
