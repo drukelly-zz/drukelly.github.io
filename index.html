@@ -63,27 +63,27 @@
     
     <div class="keys tc w-100">
       <h1 class="tc ttu tracked">Jack &amp; Eloise</h1>
-      <a onclick="openGIF(this)" data-gif="gif/1-nice.gif" data-key="65" data-iso-video="1-nice.mp4" class="key ba br-pill dib grow mb4 ph4 pv2 tc">
+      <a data-key="65" data-iso-video="1-nice.mp4" class="key ba br-pill dib grow mb4 ph4 pv2 tc">
         <kbd class="f5 fw6">A</kbd>
         <span class="f7">Nice!</span>
       </a>
-      <a onclick="openGIF(this)" data-gif="gif/2-uh-ta.gif" data-key="83" data-iso-video="2-uh-ta.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
+      <a data-key="83" data-iso-video="2-uh-ta.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
         <kbd class="f5 fw6">S</kbd>
         <span class="f7">Uh, Ta!</span>
       </a>
-      <a onclick="openGIF(this)" data-gif="gif/3-hi-gopro.gif" data-key="68" data-iso-video="3-hi-gopro.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
+      <agif" data-key="68" data-iso-video="3-hi-gopro.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
         <kbd class="f5 fw6">D</kbd>
         <span class="f7">Hi, GoPro!</span>
       </a>
-      <a onclick="openGIF(this)" data-gif="gif/4-ah.gif" data-key="70" data-iso-video="4-ah.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
+      <a data-key="70" data-iso-video="4-ah.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
         <kbd class="f5 fw6">F</kbd>
         <span class="f7">Ah!</span>
       </a>
-      <a onclick="openGIF(this)" data-gif="gif/5-laughing.gif" data-key="71" data-iso-video="5-laughing.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
+      <a data-key="71" data-iso-video="5-laughing.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
         <kbd class="f5 fw6">G</kbd>
         <span class="f7">*laughing*</span>
       </a>
-      <a onclick="openGIF(this)" data-gif="gif/6-cheese.gif" data-key="72" data-iso-video="6-cheese.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
+      <a data-key="72" data-iso-video="6-cheese.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
         <kbd class="f5 fw6">H</kbd>
         <span class="f7">Cheese!</span>
       </a>
@@ -112,15 +112,15 @@
       video.play();
     }
 
-    function openGIF(e) {
-      const file = e.getAttribute('data-gif');
+    // function openGIF(e) {
+    //   const file = e.getAttribute('data-gif');
 
-      video.remove();
-      document.body.setAttribute("style", `background: url('${file}') no-repeat center center; background-size: cover;`);
+    //   video.remove();
+    //   document.body.setAttribute("style", `background: url('${file}') no-repeat center center; background-size: cover;`);
       
-      keys.forEach(key => key.classList.remove('active'));
-      e.classList.add('active');
-    }
+    //   keys.forEach(key => key.classList.remove('active'));
+    //   e.classList.add('active');
+    // }
 
     window.addEventListener('keydown', playVideo);
   </script>
