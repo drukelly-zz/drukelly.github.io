@@ -2,137 +2,90 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Jack &amp; Eloise</title>
+  <title>D R U  &nbsp;&middot;&nbsp; K E L L Y</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="author" content="@drukelly">
+  <meta name="description" content="A Designer and Front End Developer living in Bay Area, CA. I'm currently at VMware, Inc. in Palo Alto.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
-  
-  <style>
-    video {
-      height: 100vh;
-    }
-
-    .video-container {
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
-      z-index: 5;
-    }
-
-    .video-container video {
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
-    }
-
-    .grayscale {
-      filter: grayscale(1.0);
-    }
-    
-    .active {
-      color: #ffc600;
-      border-color: #ffc600;
-      box-sahdow: 0 0 1rem #fcc600;
-    }
-
-    .keys {
-      position: absolute;
-      left: 50%;
-      z-index: 10;
-      bottom: 13%;
-      transform: translate(-50%, -50%);
-    }
-
-    .key {
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-    }
-
-    .key kbd,
-    .key span {
-      display: block;
-    }
-  </style>
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.8.0/css/tachyons.min.css"/>
+  <link rel="stylesheet" href="css/custom.css"/>
 </head>
-<body class="avenir bg-black white">
-  <div class="video-container">
-    <video autoplay loop preload="auto" class="video-board grayscale dn-sm db-m">
-      <source src="video/video-board.mp4" type="video/mp4">
-    </video>
-    
-    <div class="keys tc w-100">
-      <h1 class="tc ttu tracked">Jack &amp; Eloise</h1>
-      <a data-key="65" data-iso-video="1-nice.mp4" class="key ba br-pill dib grow mb4 ph4 pv2 tc">
-        <kbd class="f5 fw6">A</kbd>
-        <span class="f7">Nice!</span>
-      </a>
-      <a data-key="83" data-iso-video="2-uh-ta.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
-        <kbd class="f5 fw6">S</kbd>
-        <span class="f7">Uh, Ta!</span>
-      </a>
-      <a data-key="68" data-iso-video="3-hi-gopro.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
-        <kbd class="f5 fw6">D</kbd>
-        <span class="f7">Hi, GoPro!</span>
-      </a>
-      <a data-key="70" data-iso-video="4-ah.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
-        <kbd class="f5 fw6">F</kbd>
-        <span class="f7">Ah!</span>
-      </a>
-      <a data-key="71" data-iso-video="5-laughing.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
-        <kbd class="f5 fw6">G</kbd>
-        <span class="f7">*laughing*</span>
-      </a>
-      <a data-key="72" data-iso-video="6-cheese.mp4" class="key ba br-pill dib grow mb4 ml2 ph4 pv2 tc">
-        <kbd class="f5 fw6">H</kbd>
-        <span class="f7">Cheese!</span>
-      </a>
+<body class="sans-serif w-100">
+  <header class="bg-blue near-white">
+    <div class="center mw9 pa4 pt5-ns ph7-l">
+      <time class="dib f6 tracked ttu"></time>
+      <h1 class="f1-ns mb0 tracked-tight">
+        <span class="bg-black-50 lh-title pa1 pr3 pl2">
+          Hello, my name is Dru.    
+        </span>
+      </h1>
+      <h2 class="f4 f2-ns mv2 tracked-tight">
+        <span class="bg-black-50 pa1 ph2">
+          I'm a Designer / Front End Developer</h2>
+        </span>
+      <h2 class="f4 f2-ns mv2 tracked-tight">
+        <span class="bg-black-50 pa1 ph2">
+          living in Bay Area, CA.
+        </span>
+      </h2>
+      <div class="cf mv4">
+        <img src="https://gravatar.com/avatar/51db1ea6eca68e896fc46be2437222d3?s=100" width="48" height="48" alt="" class="avatar ba br-100 b--white-50 dib mr2 v-mid">
+        <h4 class="f5 dib fw1 athelas lh-solid ma0 pa0 v-mid">I currently work at VMware, Inc.</h4>
+      </div>
+      <div class="mb4">
+        <a href="/pdf/Dru-Kelly-Resume.pdf" target="_blank" class="ba br-pill bw2 dib dim link ph4 pv2 tl-l tc w-auto-ns w-100 white mb3 mb0-ns mr2">Resume</a>
+        <a href="mailto:drukelly@gmail.com" class="ba br-pill bw2 dib dim link ph4 pv2 tl-l tc w-auto-ns w-100 white">Contact</a>
+      </div>
     </div>
-  </div>
-
+  </header>
+  <section class="recent-works cf">
+    <!-- recent-works -->
+  </section>
   <script>
-    const video = document.querySelector('.video-board');
-    const keys = document.querySelectorAll('.key');
-    
-    video.volume = 0;
+    const time = document.querySelector('time').innerHTML = formatDate(new Date());
+    function formatDate(date) {
+      const shortMonthNames = [
+        'Jan', 'Feb', 'Mar',
+        'Apr', 'May', 'Jun',
+        'Jul', 'Aug', 'Sep',
+        'Oct', 'Nov', 'Dec'
+      ];
 
-    function playVideo(e) {
-      const key = document.querySelector(`a[data-key="${e.keyCode}"]`);
-      const newVideo = key.getAttribute('data-iso-video');
-      if (!newVideo) return;
-      
-      keys.forEach(key => key.classList.remove('active'));
-      key.classList.add('active');
-      
-      video.volume = .5;
-      video.classList.remove('grayscale');
+      const day = date.getDate();
+      const monthIndex = date.getMonth();
+      const year = date.getFullYear();
 
-      video.src = `video/${newVideo}`;
-      video.pause();
-      video.play();
+      return `${shortMonthNames[monthIndex]} ${day}, ${year}`
     }
 
-    // function openGIF(e) {
-    //   const file = e.getAttribute('data-gif');
+    const recentWorks = [
+      { year: 2015, title: "Flings", description: "Icon Design", slug: "vmware-flings", feature: "w-50 w-25-ns" },
+      { year: 2017, title: "VMware GitHub", description: "AngularJS, Front End Development", slug: "vmware-github", feature: "w-50-ns" },
+      { year: 2016, title: "Office of the CTO", description: "Branding and Logo Design", slug: "vmware-octo", feature: "w-50 w-25-ns" },
+      { year: 2015, title: "RADIO 2015", description: "Theme, Site Design and Development", slug: "vmware-radio", feature: "w-50 w-25-ns" },
+      { year: 2015, title: "RADIO Merch", description: "Event Merch", slug: "vmware-radio-merch", feature: "w-50 w-25-ns" },
+      { year: 2015, title: "RADIO Concept", description: "Brand Concept", slug: "vmware-radio-concept", feature: "w-50 w-25-ns" },
+      { year: 2016, title: "RADIO 2016", description: "Theme, Site Design and Development", slug: "vmware-radio", feature: "w-50 w-25-ns" },
+      { year: 2014, title: "Borathon", description: "Poster Design", slug: "vmware-borathon", feature: "w-50 w-25-ns" },
+      { year: 2014, title: "Team Lunch", description: "Poster Design", slug: "vmware-team-lunch", feature: "w-50 w-25-ns" }
+    ];
 
-    //   video.remove();
-    //   document.body.setAttribute("style", `background: url('${file}') no-repeat center center; background-size: cover;`);
-      
-    //   keys.forEach(key => key.classList.remove('active'));
-    //   e.classList.add('active');
-    // }
-
-    window.addEventListener('keydown', playVideo);
-  </script>
-
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-80329690-1', 'auto');
-    ga('send', 'pageview');
+    const newest = recentWorks.sort((a, b) => a.year > b.year ? -1 : 1);
+    const target = document.querySelector('.recent-works');
+    newest.forEach(work =>
+      target.innerHTML+= `<div class="flip-container fl ${work.feature}" ontouchstart="this.classList.toggle('hover');"><a href="javascript:;" class="db aspect-ratio aspect-ratio--1x1">
+        <div role="img" aria-label="" style="background-image:url(/img/${work.slug}-${work.year}.jpg);" class="front bg-center cover aspect-ratio--object"></div>
+        <div class="back bg-light-silver w-100">
+          <figure class="ma0 tc">
+            <figcaption class="ma0 near-black">
+              <h3 class="f6 f4-ns ma0 lh-title-ns">${work.title}</h3>
+              <hr class="mw3 bb bw1 b--black-50">
+              <p class="f6 f5-ns athelas f5 lh-solid lh-copy-ns ma0 mv1">${work.description}</p>
+            </figcaption>
+          </figure>
+        </div>
+      </a></div>`
+    );
   </script>
 </body>
 </html>
