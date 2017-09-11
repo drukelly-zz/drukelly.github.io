@@ -59,15 +59,15 @@
     }
 
     const recentWorks = [
-      { year: 2015, title: "Flings", description: "Icon Design", slug: "vmware-flings", feature: "w-50 w-25-ns" },
-      { year: 2017, title: "VMware GitHub", description: "AngularJS, Front End Development", slug: "vmware-github", feature: "w-50 w-50-ns" },
-      { year: 2016, title: "Office of the CTO", description: "Branding and Logo Design", slug: "vmware-octo", feature: "w-50 w-25-ns" },
-      { year: 2015, title: "RADIO 2015", description: "Theme, Site Design and Development", slug: "vmware-radio", feature: "w-50 w-25-ns" },
-      { year: 2015, title: "RADIO Merch", description: "Event Merch", slug: "vmware-radio-merch", feature: "w-50 w-25-ns" },
-      { year: 2015, title: "RADIO Concept", description: "Brand Concept", slug: "vmware-radio-concept", feature: "w-50 w-25-ns" },
-      { year: 2016, title: "RADIO 2016", description: "Theme, Site Design and Development", slug: "vmware-radio", feature: "w-50 w-25-ns" },
-      { year: 2014, title: "Borathon", description: "Poster Design", slug: "vmware-borathon", feature: "w-50 w-25-ns" },
-      { year: 2014, title: "Team Lunch", description: "Poster Design", slug: "vmware-team-lunch", feature: "w-50 w-25-ns" }
+      { bg: "dark-red", color: "black", year: 2015, title: "Flings", description: "Icon Design", slug: "vmware-flings", feature: "w-50 w-25-ns" },
+      { bg: "gold", color: "black", year: 2017, title: "VMware GitHub", description: "AngularJS, Front End Development", slug: "vmware-github", feature: "w-50 w-50-ns" },
+      { bg: "near-black", color: "near-white", year: 2016, title: "Office of the CTO", description: "Branding and Logo Design", slug: "vmware-octo", feature: "w-50 w-25-ns" },
+      { bg: "green", color: "near-black", year: 2015, title: "RADIO 2015", description: "Theme, Site Design and Development", slug: "vmware-radio", feature: "w-50 w-25-ns" },
+      { bg: "yellow", color: "near-black", year: 2015, title: "RADIO Merch", description: "Event Merch", slug: "vmware-radio-merch", feature: "w-50 w-25-ns" },
+      { bg: "light-blue", color: "near-black", year: 2015, title: "RADIO Concept", description: "Brand Concept", slug: "vmware-radio-concept", feature: "w-50 w-25-ns" },
+      { bg: "near-white", color: "black", year: 2016, title: "RADIO 2016", description: "Theme, Site Design and Development", slug: "vmware-radio", feature: "w-50 w-25-ns" },
+      { bg: "washed-red", color: "near-black", year: 2014, title: "Borathon", description: "Poster Design", slug: "vmware-borathon", feature: "w-50 w-25-ns" },
+      { bg: "hot-pink", color: "black", year: 2014, title: "Team Lunch", description: "Poster Design", slug: "vmware-team-lunch", feature: "w-50 w-25-ns" }
     ];
 
     const newest = recentWorks.sort((a, b) => a.year > b.year ? -1 : 1);
@@ -75,11 +75,10 @@
     newest.forEach(work =>
       target.innerHTML+= `<div class="flip-container fl ${work.feature}" ontouchstart="this.classList.toggle('hover');"><a href="javascript:;" class="db aspect-ratio aspect-ratio--1x1">
         <div role="img" aria-label="" style="background-image:url(/img/${work.slug}-${work.year}.jpg);" class="front bg-center cover aspect-ratio--object"></div>
-        <div class="back bg-light-silver w-100">
+        <div class="back bg-${work.bg} w-100">
           <figure class="ma0 tc">
-            <figcaption class="ma0 near-black">
+            <figcaption class="ma0 ${work.color}">
               <h3 class="f6 f4-ns ma0 lh-title-ns">${work.title}</h3>
-              <hr class="mw3 bb bw1 b--black-50">
               <p class="f6 f5-ns athelas f5 lh-solid lh-copy-ns ma0 mv1">${work.description}</p>
             </figcaption>
           </figure>
