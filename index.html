@@ -19,11 +19,11 @@
           Hello, my name is Dru.    
         </span>
       </h1>
-      <h2 class="f4 f2-ns mv2 tracked-tight">
+      <h2 class="f4 f3-ns mv2 tracked-tight">
         <span class="bg-black-50 pa1 ph2">
-          I'm a Designer / Front End Developer</h2>
+          I'm a Designer / Front End Developer for 10+ years</h2>
         </span>
-      <h2 class="f4 f2-ns mv2 tracked-tight">
+      <h2 class="f4 f3-ns mv2 tracked-tight">
         <span class="bg-black-50 pa1 ph2">
           living in Bay Area, CA.
         </span>
@@ -59,21 +59,22 @@
     }
 
     const recentWorks = [
-      { bg: "dark-red", color: "black", year: 2015, title: "Flings", description: "Icon Design", slug: "vmware-flings", feature: "w-50 w-25-ns" },
-      { bg: "gold", color: "black", year: 2017, title: "VMware GitHub", description: "AngularJS, Front End Development", slug: "vmware-github", feature: "w-50 w-50-ns" },
-      { bg: "near-black", color: "near-white", year: 2016, title: "Office of the CTO", description: "Branding and Logo Design", slug: "vmware-octo", feature: "w-50 w-25-ns" },
-      { bg: "green", color: "near-black", year: 2015, title: "RADIO 2015", description: "Theme, Site Design and Development", slug: "vmware-radio", feature: "w-50 w-25-ns" },
-      { bg: "yellow", color: "near-black", year: 2015, title: "RADIO Merch", description: "Event Merch", slug: "vmware-radio-merch", feature: "w-50 w-25-ns" },
-      { bg: "light-blue", color: "near-black", year: 2015, title: "RADIO Concept", description: "Brand Concept", slug: "vmware-radio-concept", feature: "w-50 w-25-ns" },
-      { bg: "near-white", color: "black", year: 2016, title: "RADIO 2016", description: "Theme, Site Design and Development", slug: "vmware-radio", feature: "w-50 w-25-ns" },
-      { bg: "washed-red", color: "near-black", year: 2014, title: "Borathon", description: "Poster Design", slug: "vmware-borathon", feature: "w-50 w-25-ns" },
-      { bg: "hot-pink", color: "black", year: 2014, title: "Team Lunch", description: "Poster Design", slug: "vmware-team-lunch", feature: "w-50 w-25-ns" }
+      { url: "http://labs.vmware.com/flings", bg: "dark-red", color: "black", year: 2015, title: "Flings", description: "Icon Design", slug: "vmware-flings", feature: "w-50 w-25-ns" },
+      { url: "http://vmware.github.io", bg: "gold", color: "black", year: 2017, title: "VMware GitHub", description: "AngularJS, Front End Development", slug: "vmware-github", feature: "w-50 w-25-ns" },
+      { url: "javascript:;", bg: "near-black", color: "near-white", year: 2016, title: "Office of the CTO", description: "Branding and Logo Design", slug: "vmware-octo", feature: "w-50 w-25-ns" },
+      { url: "javascript:;", bg: "green", color: "near-black", year: 2015, title: "RADIO 2015", description: "Theme, Site Design and Development", slug: "vmware-radio", feature: "w-50 w-25-ns" },
+      { url: "javascript:;", bg: "yellow", color: "near-black", year: 2015, title: "RADIO Merch", description: "Event Merch", slug: "vmware-radio-merch", feature: "w-50 w-25-ns" },
+      { url: "javascript:;", bg: "light-blue", color: "near-black", year: 2015, title: "RADIO Concept", description: "Brand Concept", slug: "vmware-radio-concept", feature: "w-50 w-25-ns" },
+      { url: "javascript:;", bg: "near-white", color: "black", year: 2016, title: "RADIO 2016", description: "Theme, Site Design and Development", slug: "vmware-radio", feature: "w-50 w-25-ns" },
+      { url: "javascript:;", bg: "washed-red", color: "near-black", year: 2014, title: "Borathon", description: "Poster Design", slug: "vmware-borathon", feature: "w-50 w-25-ns" },
+      { url: "/video-drumkit", bg: "blue", color: "washed-red", year: 2017, title: "Video Drumkit", description: "Inspired of #javascript30 exercise", slug: "video-drumkit", feature: "w-50 w-50-ns" },
+      { url: "javascript:;", bg: "hot-pink", color: "black", year: 2014, title: "Team Lunch", description: "Poster Design", slug: "vmware-team-lunch", feature: "w-50 w-25-ns" }
     ];
 
     const newest = recentWorks.sort((a, b) => a.year > b.year ? -1 : 1);
     const target = document.querySelector('.recent-works');
     newest.forEach(work =>
-      target.innerHTML+= `<div class="flip-container fl ${work.feature}" ontouchstart="this.classList.toggle('hover');"><a href="javascript:;" class="db aspect-ratio aspect-ratio--1x1">
+      target.innerHTML+= `<div class="flip-container fl ${work.feature}" ontouchstart="this.classList.toggle('hover');"><a href="${work.url}" target="_blank" class="db aspect-ratio aspect-ratio--1x1">
         <div role="img" aria-label="" style="background-image:url(/img/${work.slug}-${work.year}.jpg);" class="front bg-center cover aspect-ratio--object"></div>
         <div class="back bg-${work.bg} w-100">
           <figure class="ma0 tc">
