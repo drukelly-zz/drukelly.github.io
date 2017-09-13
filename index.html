@@ -77,7 +77,7 @@
     const newest = recentWorks.sort((a, b) => a.year > b.year ? -1 : 1);
     const target = document.querySelector('.recent-works');
     newest.forEach(work =>
-      target.innerHTML+= `<div class="flip-container fl ${work.feature}" ontouchstart="this.classList.toggle('hover');"><a href="${work.url}" target="_blank" class="db aspect-ratio aspect-ratio--1x1">
+      target.innerHTML+= `<div class="work-item fl ${work.feature}" ontouchstart="this.classList.toggle('hover');"><a href="${work.url}" target="_blank" class="db aspect-ratio aspect-ratio--1x1">
         <div role="img" aria-label="" style="background-image:url(/img/${work.slug}-${work.year}.jpg);" class="front bg-center cover aspect-ratio--object"></div>
         <div class="back bg-${work.bg} w-100">
           <figure class="ma0 tc">
