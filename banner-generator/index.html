@@ -6,8 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.0/css/tachyons.min.css"/>
   <link rel="stylesheet" href="dist/css/app.css"/>
+  <script src="lib/moment.min.js"></script>
   <script src="https://unpkg.com/vue@2.5.11/dist/vue.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.js"></script>
 </head>
 <body class="sans-serif ma4">
   
@@ -31,7 +33,7 @@
             <div class="black-50 dib f7 mr1 tracked ttu">Design</div>
             <ul id="designOptions" class="list pl0">
               <li v-for="item in options" class="tc dib mr2">
-                <img @click="pickOption" :src="'images/btn-' + item.value + '.png'" :data-option="item.value" alt="" class="option b--black-40 ba br2 h3 w3 dib">
+                <img alt="" class="option ba bw2 b--black-10 br2 h3 w3 dib" @click="pickOption" :src="'/images/btn-' + item.value + '.png'" :data-option="item.value">
               </li>
             </ul>
           </label>
@@ -61,7 +63,7 @@
       <div class="w-10"></div>
       
       <div class="w-60">
-        <div class="target ba b--black-40 flex items-center mv4"
+        <div class="target hide ba b--black-40 flex items-center mv4"
           v-for="type in types"
           :id="type.value + '-preview'"
           :data="options.option">
@@ -79,68 +81,7 @@
     </div>
   </div>
 
-  <script>
-    var app = new Vue({
-      el: '#app',
-      data: {
-        headline: 'Please Join Us Live For The Q4 FY18 Company Meeting',
-        location: 'in the Palo Alto Prom F Gym or via webcast',
-        dateDisplay: 'Thursday, December 7, 2017',
-        timeDisplay: 'from 9:00 AM - 10:30 AM PST',
-        finePrint: 'Visit the Company Meeting Source page for details',
-        options: [
-          { value: 'option1' },
-          { value: 'option2' },
-          { value: 'option3' }
-        ],
-        types: [
-          { value: 'source' },
-          { value: 'vault' }
-        ]
-      },
-      methods: {
-        pickOption: function(e) {
-          // select the divs to update with selected option class name
-          const targetDivs = document.querySelectorAll('.target');
-          const selectedOption = e.target.dataset.option;
-
-          // update target divs based on selected option
-          targetDivs.forEach(function(element) {
-            if ([].some.call(element.classList, c => /option.*/.test(c))) {
-              element.classList.remove('option1', 'option2', 'option3');
-            }
-            element.classList.add(selectedOption);
-          });
-        }
-      }
-    });
-
-    // download links
-    const sourceDownload = document.querySelector('#source-download');
-    const vaultDownload = document.querySelector('#vault-download');
-    // generate canvas from source div
-    const sourceDiv = document.querySelector('#source-preview');
-    const vaultDiv = document.querySelector('#vault-preview');
-
-    window.addEventListener('mousemove', function(e){
-      // generate download link for source
-      html2canvas(sourceDiv, {
-        onrendered: function(canvas) {
-          const image = canvas.toDataURL('image/png').replace('image/png','application/octet-stream');
-          sourceDownload.setAttribute('href', image);
-          sourceDownload.setAttribute('download', 'source-banner.png');
-        }
-      });
-      // generate download link for vault
-      html2canvas(vaultDiv, {
-        onrendered: function(canvas) {
-          const image = canvas.toDataURL('image/png').replace('image/png','application/octet-stream');
-          vaultDownload.setAttribute('href', image);
-          vaultDownload.setAttribute('download', 'vault-banner.png')
-        }
-      });
-    });
-  </script>
+  <script src="app.js"></script>
 
 </body>
 </html>
