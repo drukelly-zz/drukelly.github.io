@@ -6,6 +6,7 @@ var app = new Vue({
     dateDisplay: moment().format('dddd, MMMM Do, YYYY'),
     timeDisplay: 'from 9:00 AM - 10:30 AM PST',
     finePrint: 'Visit the Company Meeting Source page for details',
+    ctaText: 'Learn More',
     options: [
     { value: 'option1' },
     { value: 'option2' },
@@ -30,6 +31,7 @@ var app = new Vue({
         element.classList.remove('hide');
         element.classList.add(selectedOption);
       });
+      checkTextInput('input[name="ctaText"]', '.cta');
     }
   }
 });
@@ -38,29 +40,41 @@ var app = new Vue({
 const sourceDownload = document.querySelector('#source-download');
 const vaultDownload = document.querySelector('#vault-download');
 // generate canvas from source div
-const sourceDiv = document.querySelector('#source-preview');
-const vaultDiv = document.querySelector('#vault-preview');
-
-window.addEventListener('mousemove', function(e){
+$(window).on('mousemove', function(e){
+  // const options = { 'scale': 2 };
   // generate download link for source
-  html2canvas(sourceDiv, {
+  html2canvas($('#source-preview'), {
     onrendered: function(canvas) {
       const image = canvas.toDataURL('image/png').replace('image/png','application/octet-stream');
-      sourceDownload.setAttribute('href', image);
-      sourceDownload.setAttribute('download', 'source-banner.png');
+      $('#source-download').attr('href', image);
+      $('#source-download').attr('download', 'source-banner-' + moment().format('X') + '.png');
     }
   });
   // generate download link for vault
-  html2canvas(vaultDiv, {
+  html2canvas($('#vault-preview'), {
     onrendered: function(canvas) {
       const image = canvas.toDataURL('image/png').replace('image/png','application/octet-stream');
-      vaultDownload.setAttribute('href', image);
-      vaultDownload.setAttribute('download', 'vault-banner.png')
+      $('#vault-download').attr('href', image);
+      $('#vault-download').attr('download', 'vault-banner-'+ moment().format('X') +'.png');
     }
   });
 });
 
+// active class for the clicked option
 $('#designOptions').on('click', 'li', function() {
+  $('.cta').removeClass('hide');
   $('li.active').removeClass('active');
   $(this).addClass('active');
 });
+
+function checkTextInput(element, targetedElement) {
+  // remove call-to-action when input text field is empty
+  console.log(element, targetedElement);
+  $(element).change(function(e){
+    if (!$(this).val()) {
+      $(targetedElement).addClass('hide');
+    } else {
+      $(targetedElement).removeClass('hide');
+    }
+  });
+}

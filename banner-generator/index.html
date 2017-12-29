@@ -6,9 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.0/css/tachyons.min.css"/>
   <link rel="stylesheet" href="dist/css/app.css"/>
-  <script src="lib/moment.min.js"></script>
   <script src="https://unpkg.com/vue@2.5.11/dist/vue.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+  <script src="lib/moment.min.js"></script>
+  <!-- <script src="lib/html2canvas.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.js"></script>
 </head>
 <body class="sans-serif ma4">
@@ -33,7 +34,7 @@
             <div class="black-50 dib f7 mr1 tracked ttu">Design</div>
             <ul id="designOptions" class="list pl0">
               <li v-for="item in options" class="tc dib mr2">
-                <img alt="" class="option ba bw2 b--black-10 br2 h3 w3 dib" @click="pickOption" :src="'images/btn-' + item.value + '.png'" :data-option="item.value">
+                <img alt="" class="option ba bw2 b--black-10 br2 h3 w3 dib" @click="pickOption" :src="'/images/btn-' + item.value + '.png'" :data-option="item.value">
               </li>
             </ul>
           </label>
@@ -57,6 +58,10 @@
             <div class="black-50 f7 mb1 tracked ttu">Fine Print</div>
             <input type="text" name="finePrint" v-model="finePrint" class="ba b--black-40 pa1 w-100">
           </label>
+          <!-- <label for="ctaText" class="dib mb4 w-100">
+            <div class="black-50 f7 mb1 tracked ttu">Call-to-Action</div>
+            <input type="text" name="ctaText" v-model="ctaText" class="ba b--black-40 pa1 w-100">
+          </label> -->
         </form>
       </div>
 
@@ -68,9 +73,10 @@
           :id="type.value + '-preview'"
           :data="options.option">
           <div class="positioning-container">
-            <header class="ma0 relative ttu">{{ headline }}</header>  
-            <p class="location ma0 relative">{{ location }}</p>
-            <p class="date-time ma0 relative"><strong class="db">{{ dateDisplay }}</strong> {{ timeDisplay }}</p>
+            <header class="ma0 relative ttu" v-html="headline"></header>  
+            <p class="location ma0 relative" v-html="location"></p>
+            <p class="date-time ma0 relative"><strong class="db" v-html="dateDisplay"></strong> <span v-html="timeDisplay"></span></p>
+            <!-- <p class="cta hide dib ma0 relative">{{ ctaText }}</p> -->
             <p class="finePrint ma0 relative"><small>{{ finePrint }}</small></p>
           </div>
           <div class="background"></div>
