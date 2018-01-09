@@ -1,0 +1,27 @@
+{
+  "name": "Banner-Generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build-task:scss-compile": "node-sass-chokidar --source-map true src/scss -o dist/css --output-style compressed",
+    "build-task:autoprefixer": "postcss dist/css/*.css --use autoprefixer -d dist/css",
+    "sass:build": "npm-run-all -p build-task:*",
+    "sass:watch": "chokidar 'src/scss/**/*.scss' -c 'npm run sass:build'",
+    "dev": "npm-run-all -p sass:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drukelly/Banner-Generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drukelly/Banner-Generator/issues"
+  },
+  "homepage": "https://github.com/drukelly/Banner-Generator#readme"
+}
