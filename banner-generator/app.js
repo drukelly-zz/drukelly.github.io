@@ -70,7 +70,6 @@ $('#designOptions').on('click', 'li', function() {
 
 function checkTextInput(element, targetedElement) {
   // remove call-to-action when input text field is empty
-  console.log(element, targetedElement);
   $(element).change(function(e){
     if (!$(this).val()) {
       $(targetedElement).addClass('hide');
