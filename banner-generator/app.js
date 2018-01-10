@@ -36,26 +36,27 @@ var app = new Vue({
   }
 });
 
-// download links
-const sourceDownload = document.querySelector('#source-download');
-const vaultDownload = document.querySelector('#vault-download');
-// generate canvas from source div
-$(window).on('mousemove', function(e){
-  // const options = { 'scale': 2 };
-  // generate download link for source
+// generate download links
+$('#source-download').on('mouseover', function(e) {
   html2canvas($('#source-preview'), {
+    dpi: 144,
+    scale: 2,
     onrendered: function(canvas) {
       const image = canvas.toDataURL('image/png').replace('image/png','application/octet-stream');
       $('#source-download').attr('href', image);
       $('#source-download').attr('download', 'source-banner-' + moment().format('X') + '.png');
     }
   });
-  // generate download link for vault
+});
+
+$('#vault-download').on('mouseover', function(e) {
   html2canvas($('#vault-preview'), {
+    dpi: 144,
+    scale: 2,
     onrendered: function(canvas) {
       const image = canvas.toDataURL('image/png').replace('image/png','application/octet-stream');
       $('#vault-download').attr('href', image);
-      $('#vault-download').attr('download', 'vault-banner-'+ moment().format('X') +'.png');
+      $('#vault-download').attr('download', 'vault-banner-' + moment().format('X') + '.png');
     }
   });
 });
