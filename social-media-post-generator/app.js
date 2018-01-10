@@ -50,7 +50,6 @@ $('#design-options ul').on('click', 'li', function() {
 
 // download handler
 $('#btn-download').on('mouseover', function(e) {
-  console.log('mousever');
   html2canvas($('#preview-window'), {
     dpi: 144,
     scale: 2,
