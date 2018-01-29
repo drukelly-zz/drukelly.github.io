@@ -1,8 +1,8 @@
 var app = new Vue({
   el: '#app',
   data: {
-    headline: 'Please Join Us Live For The Q4 FY18 Company Meeting',
-    location: 'in the Palo Alto Prom F Gym or via webcast',
+    headline: 'Please Join Us Live For The Company Meeting',
+    location: 'in the Palo Alto Gym or via webcast',
     dateDisplay: moment().format('dddd, MMMM Do, YYYY'),
     timeDisplay: 'from 9:00 AM - 10:30 AM PST',
     finePrint: 'Visit the Company Meeting Source page for details',
@@ -31,7 +31,7 @@ var app = new Vue({
         element.classList.remove('hide');
         element.classList.add(selectedOption);
       });
-      checkTextInput('input[name="ctaText"]', '.cta');
+      checkTextInput('input[name="ctaText"]', 'p.cta');
     }
   }
 });
@@ -63,7 +63,9 @@ $('#vault-download').on('mouseover', function(e) {
 
 // active class for the clicked option
 $('#designOptions').on('click', 'li', function() {
-  $('.cta').removeClass('hide');
+  if ($('.first-load-cover')) {
+    $('.first-load-cover').remove();  
+  }
   $('li.active').removeClass('active');
   $(this).addClass('active');
 });

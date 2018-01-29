@@ -59,10 +59,10 @@
             <div class="black-50 f7 mb1 tracked ttu">Fine Print</div>
             <input type="text" name="finePrint" v-model="finePrint" class="ba b--black-40 pa1 w-100">
           </label>
-          <!-- <label for="ctaText" class="dib mb4 w-100">
+          <label for="ctaText" class="dib mb4 w-100">
             <div class="black-50 f7 mb1 tracked ttu">Call-to-Action</div>
             <input type="text" name="ctaText" v-model="ctaText" class="ba b--black-40 pa1 w-100">
-          </label> -->
+          </label>
         </form>
       </div>
 
@@ -73,12 +73,13 @@
           v-for="type in types"
           :id="type.value + '-preview'"
           :data="options.option">
+          <div class="first-load-cover"></div>
           <div class="positioning-container">
             <header class="ma0 relative ttu" v-html="headline"></header>  
             <p class="location ma0 relative" v-html="location"></p>
             <p class="date-time ma0 relative"><strong class="db" v-html="dateDisplay"></strong> <span v-html="timeDisplay"></span></p>
-            <!-- <p class="cta hide dib ma0 relative">{{ ctaText }}</p> -->
             <p class="finePrint ma0 relative"><small>{{ finePrint }}</small></p>
+            <p class="cta dib ma0 relative"><span>{{ ctaText }}</span></p>
           </div>
           <div class="background"></div>
         </div>
