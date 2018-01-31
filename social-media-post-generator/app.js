@@ -24,8 +24,10 @@ $.each(designOptions, function(index, value) {
 // define inputs and target
 const headlineInput = $('input[name=headline]');
 const copyInput = $('textarea[name=copy]');
+const callToActionInput = $('input[name=callToAction]');
 const header = $('#positioning-container header');
 const copy = $('#positioning-container p.copy');
+const callToAction = $('#positioning-container p.cta');
 
 // on key events, update targets
 $(headlineInput).on('keyup blur change', function(){
@@ -33,6 +35,9 @@ $(headlineInput).on('keyup blur change', function(){
 });
 $(copyInput).on('keyup blur change', function(){
   copy.text(copyInput.val());
+});
+$(callToActionInput).on('keyup blur change', function(){
+  callToAction.text(callToActionInput.val());
 });
 
 // active class for the clicked option
