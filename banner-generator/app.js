@@ -38,26 +38,18 @@ var app = new Vue({
 
 // generate download links
 $('#source-download').on('mouseover', function(e) {
-  html2canvas($('#source-preview'), {
-    dpi: 144,
-    scale: 2,
-    onrendered: function(canvas) {
-      const image = canvas.toDataURL('image/png').replace('image/png','application/octet-stream');
-      $('#source-download').attr('href', image);
-      $('#source-download').attr('download', 'source-banner-' + moment().format('X') + '.png');
-    }
+  html2canvas($('#source-preview')[0]).then(canvas => {
+    const image = canvas.toDataURL('image/png').replace('image/png','application/octet-stream');
+    $('#source-download').attr('href', image);
+    $('#source-download').attr('download', 'source-banner-' + moment().format('X') + '.png');
   });
 });
 
 $('#vault-download').on('mouseover', function(e) {
-  html2canvas($('#vault-preview'), {
-    dpi: 144,
-    scale: 2,
-    onrendered: function(canvas) {
-      const image = canvas.toDataURL('image/png').replace('image/png','application/octet-stream');
-      $('#vault-download').attr('href', image);
-      $('#vault-download').attr('download', 'vault-banner-' + moment().format('X') + '.png');
-    }
+  html2canvas($('#vault-preview')[0]).then(canvas => {
+    const image = canvas.toDataURL('image/png').replace('image/png','application/octet-stream');
+    $('#vault-download').attr('href', image);
+    $('#vault-download').attr('download', 'vault-banner-' + moment().format('X') + '.png');
   });
 });
 
