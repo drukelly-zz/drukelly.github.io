@@ -1,0 +1,60 @@
+$asana-white: #f6f8f9;
+
+body {
+  background-color: $asana-white;
+}
+
+.site {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#app {
+  flex: 1;
+}
+
+header {
+  h1 {
+    &:before {
+      background: url('../../images/tasks.svg') no-repeat;
+      background-size: 64px 64px;
+      content: "";
+      display: inline-block;
+      margin-right: .25em;
+      height: 64px;
+      width: 64px;
+    }
+  }
+}
+
+ul {
+  li {
+    cursor: pointer;
+    a {
+      -webkit-transition: opacity 0.3s ease-in-out;
+      transition: opacity 0.3s ease-in-out;
+      &:first-child {
+        background: url('../../images/hide.svg') no-repeat;
+        background-size: 24px 24px;
+        opacity: 0;
+        height: 24px;
+        width: 24px;
+      }
+    }
+    &:hover {
+      a:first-child {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+footer {
+  background-color: #e5e5e5;
+  .asana {
+    background: url('../../images/asana.svg') no-repeat;
+    height: 24px;
+    width: 100px;
+  }
+}
