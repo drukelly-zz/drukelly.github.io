@@ -1,3 +1,18 @@
+const time = document.querySelector('time').innerHTML = formatDate(new Date());
+
+function formatDate(date) {
+  const shortMonthNames = [
+    'Jan', 'Feb', 'Mar',
+    'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sep',
+    'Oct', 'Nov', 'Dec'
+  ];
+  const day = date.getDate();
+  const monthIndex = date.getMonth();
+  const year = date.getFullYear();
+  return `${shortMonthNames[monthIndex]} ${day}, ${year}`
+}
+
 const recentWorks = [
   { url: "http://labs.vmware.com/flings", year: 2015, title: "Flings", description: "Icon Design", slug: "vmware-flings" },
   { url: "http://vmware.github.io", year: 2017, title: "VMware GitHub", description: "AngularJS, Front End Development", slug: "vmware-github" },
