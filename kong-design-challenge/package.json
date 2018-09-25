@@ -1,0 +1,26 @@
+{
+  "name": "kong-design-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build-task:scss-compile": "node-sass --source-map true src/scss -o dist/css --output-style compressed",
+    "build-task:autoprefixer": "postcss dist/css/*.css --use autoprefixer -d dist/css",
+    "sass:build": "npm-run-all -p build-task:*",
+    "sass:watch": "nodemon -e scss -x \"npm run sass:build\"",
+    "dev": "concurrently \"npm-run-all -p sass:*\" \"live-server\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drukelly/kong-design-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drukelly/kong-design-challenge/issues"
+  },
+  "homepage": "https://github.com/drukelly/kong-design-challenge#readme"
+}
