@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>John Kelly - Contact</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="content">
+    <header>
+      <div>
+        <h1><a href="index.html" class="site-link">John Kelly</a></h1>
+        <nav>
+          <ul class="site-navigation">
+            <li><a href="index.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section class="main-content">
+      <div class="content-container">
+        <h2>Contact</h2>
+        <form action="/" method="POST">
+          <fieldset>
+            <legend>Name</legend>
+            <label for="fullName">
+              <input type="text" id="fullName" name="fullName" placeholder="John/Jane Doe" required>
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>Email</legend>
+            <label for="emailAddress">
+              <input type="email" id="emailAddress" name="emailAddress" placeholder="example@domain.com" required>
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>Message</legend>
+            <label for="message">
+              <textarea name="message" id="message" cols="30" rows="10"></textarea>
+            </label>
+          </fieldset>
+          <button>Submit</button>
+        </form>
+      </div>
+    </section>
+  </div>
+  <footer>
+    John Kelly &middot; Copyright &copy; 2019
+  </footer>
+</body>
+</html>

@@ -1,0 +1,254 @@
+/* Color Variables */
+:root {
+  --gray: #ccc;
+  --light-gray: #ddd;
+  --slate: #777;
+  --teal: #49aaa5;
+  --white: #fff;
+}
+
+/* HTML Basic Declarations */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: url('../../assets/images/ignasi_pattern_s.png') repeat;
+  color: var(--slate);
+  display: flex;
+  flex-direction: column;
+  font: 1em/1.67 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+/* Header */
+header {
+  background-color: var(--white);
+  border-bottom: 2px solid var(--gray);
+}
+
+header > div {
+  align-items: center;
+  display: flex;
+  margin: 0 auto;
+  width: 960px;
+}
+
+header h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.site-link {
+  background-color: var(--teal);
+  color: var(--white);
+  display: block;
+  padding: .5em 1em;
+  text-decoration: none;
+}
+
+/* Navigation */
+nav {
+  margin-left: auto;
+}
+
+.site-navigation {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-navigation li {
+  border-left: 1px solid var(--gray);
+  display: inline-block;
+  padding: 0 .5em 0 .67em;
+}
+
+.site-navigation li:first-child {
+  border-left: none;
+}
+
+.site-navigation a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Site Content */
+.main-content {
+  margin: 2em auto 3em;
+  width: 960px;
+}
+
+.content-container {
+  background-color: var(--white);
+  border: 1px solid var(--light-gray);
+  padding: .5em 2em 1em;
+  width: 67%;
+}
+
+.main-content h2 {
+  border-bottom: 2px solid var(--gray);
+  color: var(--teal);
+  margin-bottom: 1.25em;
+  padding-bottom: .5em;
+}
+
+/* Portfolio */
+.portfolio-items {
+  align-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.portfolio-items a {
+  display: block;
+  margin-bottom: 10px;
+  position: relative;
+  text-decoration: none;
+  transition: opacity 0.3s ease-in-out;
+  width: 278px;
+}
+.portfolio-items a:active,
+.portfolio-items a:hover {
+  opacity: .67;
+}
+
+.portfolio-items a:nth-child(odd) {
+  margin-right: 20px;
+}
+
+.portfolio-items img {
+  width: 100%;
+}
+
+.portfolio-items h3 {
+  background-color: var(--teal);
+  bottom: 20px;
+  color: var(--white);
+  font-weight: normal;
+  margin: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+/* Figure */
+figure {
+  float: left;
+  margin: 0 2em 1em 0;
+}
+
+/* Contact */
+form {
+  margin-bottom: 1em;
+}
+
+fieldset {
+  border: none;
+  margin: 0 0 .75em;
+  padding: 0;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  border: 1px solid var(--gray);
+  padding: .25em .5em;
+  width: 98%;
+}
+
+textarea {
+  border: 1px solid var(--gray);
+}
+
+button {
+  background-color: var(--teal);
+  border: none;
+  color: var(--white);
+  outline: none;
+  padding: .5em 2em;
+}
+
+/* Footer  */
+footer {
+  background-color: var(--slate);
+  border-top: 5px solid var(--teal);
+  color: var(--gray);
+  flex-shrink: 0;
+  padding: 1em 0;
+  text-align: center;
+}
+
+/* Classes */
+.clearfix {
+  clear: both;
+  display: block;
+  height: 0;
+}
+
+.img-responsive {
+  width: 100%;
+}
+
+/* Media Queries */
+/* Desktop */
+@media screen and (max-width: 980px) {
+}
+
+/* Tablet */
+@media screen and (max-width: 768px) {
+  header > div,
+  .main-content {
+    width: 728px;
+  }
+  .content-container {
+    width: 100%;
+  }
+  .portfolio-items a {
+    width: 321px
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 640px) {
+  header > div {
+    flex-direction: column;
+    width: 100%;
+  }
+  header h1 {
+    text-align: center;
+    width: 100%;
+  }
+  nav {
+    margin: 1em 0;
+  }
+  .main-content {
+    width: calc(100% - 40px);
+  }
+  .content-container {
+    padding: .5em 1.5em;
+    width: 100%;
+  }
+  figure {
+    float: none;
+    margin: 0;
+  }
+  .portfolio-items a,
+  .portfolio-items a:nth-child(odd) {
+    margin-right: 0;
+  }
+}
