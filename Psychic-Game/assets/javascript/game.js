@@ -3,10 +3,13 @@ let cpu = {
   "score" : 0
 }
 let user = {
-  "chances" : 3,
+  "chances" : 9,
   "score" : 0
 }
-const totalPoints = 5;
+let defaults = {
+  "chances" : 9,
+  "totalPoints" : 3
+}
 // Arrays
 const guesses = [];
 const letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
@@ -49,7 +52,7 @@ const modalBegone = () => {
   overlay.classList.add("hide");
 }
 const nextRound = (player) => {
-  user["chances"] = 3;
+  user["chances"] = defaults["chances"];
   console.log(`${player} won that round!`);
   let nextRoundTimer = setTimeout(function() {
     guesses.length = 0;
@@ -79,14 +82,14 @@ const updateScores = () => {
 // onload
 document.addEventListener("DOMContentLoaded", () => {
   spanNumOfAttempts.textContent = user["chances"];
-  spanTotalPoints.textContent = totalPoints;
+  spanTotalPoints.textContent = defaults["totalPoints"];
   // randomize a letter
   let charToGuess = letters[getRandomInt(letters.length)];
   winningLetters.push(charToGuess);
   console.log(`the winning key is => ${charToGuess}`);
   updateScores();
-  // onkeypress
-  document.onkeypress = (event) => {
+  // onkeydown
+  document.onkeydown = (event) => {
     modalBegone();
     let guess = event.key;
     if (isLetter(guess, letters) && noRepeatedEntries(guess, guesses, charToGuess)) {
@@ -113,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(`the next winning key is => ${winningLetters[winningLetters.length-1]}`);
       }
       // user wins scenario
-      if (user["score"] === totalPoints) {
+      if (user["score"] === defaults["totalPoints"]) {
         displayModal("You Win!");
         modal.classList.add("winner");
         modal.classList.remove("loser");
@@ -124,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
         clearTimeout(this.nextRoundTimer);
       }
       // cpu wins scenario
-      if (cpu["score"] === totalPoints) {
+      if (cpu["score"] === defaults["totalPoints"]) {
         displayModal("You Lose");
         modal.classList.add("loser");
         modal.classList.remove("winner");
