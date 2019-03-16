@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+}
+
+@keyframes up-and-down {
+  from {
+    top: -20px;
+  }
+  to {
+    top: 0;
+  }
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background-color: #282c2f;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.backdrop {
+  background: url("../../assets/images/stage.jpg") no-repeat center -160px;
+  background-size: cover;
+  height: 100vh;
+  left: 0;
+  opacity: .33;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: 10;
+}
+
+.profile-photo {
+  position: relative;
+  text-align: center;
+  top: 45%;
+  transform: translateY(-50%);
+  z-index: 20;
+}
+
+.scoreboard {
+  margin: 2em 1.5em 1em;
+  position: relative;
+  z-index: 40;
+}
+
+.hp {
+  position: relative;
+  overflow: hidden;
+}
+.player-hp,
+.cpu-hp {
+  background-color: #f5f706;
+  border: 3px solid #fff;
+  border-radius: 6px;
+  height: 40px;
+  width: 100%;
+}
+.player-hp div,
+.cpu-hp div {
+  background-color: rgba(255, 0, 0, .75);
+  display: inline-block;
+  height: 100%;
+  transition: width 0.3s ease-out;
+  width: 0%;
+}
+.cpu-hp div {
+  position: absolute;
+  right: 0;
+  transform: rotateX(180deg);
+}
+
+.ko {
+  color: #fff;
+  font-size: 2.5em;
+  font-weight: bold;
+  letter-spacing: -4pt;
+  position: relative;
+  text-align: center;
+  text-shadow: 3px 3px 0 black;
+  top: -3px;
+  width: 192px;
+}
+
+.gameboard {
+  background-color: #111;
+  position: relative;
+  z-index: 30;
+}
+
+.letter {
+  background-color: rgba(0, 0, 0, .5);
+  color: #fff;
+  display: inline-block;
+  font: 4rem/1 "VT323", monospace;
+  margin: .25em 0 .25em .18em;
+  padding: .5em;
+  text-transform: uppercase;
+}
+.letter:first-child {
+  margin-left: 0;
+}
+.letter-active {
+  background-color: #ccc;
+  color: #333;
+}
+
+.result {
+  position: fixed;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+  z-index: 100;
+}
+.result img {
+  margin-top: 2em;
+}
+
+.question {
+  animation: up-and-down 1s alternate infinite ease-in-out;
+  position: relative;
+  top: -64px;
+  width: 256px;
+}
+
+.flex {
+  display: flex;
+}
+.flex-column {
+  flex-direction: column;
+}
+.align-justify-center {
+  align-content: center;
+  justify-content: center;
+}
