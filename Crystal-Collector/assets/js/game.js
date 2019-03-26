@@ -1,5 +1,4 @@
 $(function(){
-
   // Variables (Game Settings)
   let animationDuration = 500,
       isClicked,
@@ -10,7 +9,6 @@ $(function(){
   const MIN = 12;
   const MAX = 86;
   const GEMS = ["aqua", "blue", "emerald", "orange", "purple", "red"];
-
   // Helper Functions
   // Randomize Integers with inclusive scope
   const randomInt = (min, max) => {
@@ -34,7 +32,6 @@ $(function(){
     Array.from(array);
     return array;
   }
-
   // Game Functions
   const buildGems = (array, min, max) => {
     // Shuffle per call of the function
@@ -126,11 +123,9 @@ $(function(){
     $("#gems").empty();
     buildGems(GEMS, MIN, MAX);
   }
-
   // Display Score: First Pass
   displayedScore = randomInt(MIN, MAX);
   $("#randomScore").text(displayedScore);
-
   // Game Init
   buildGems(GEMS, MIN, MAX);
 });
