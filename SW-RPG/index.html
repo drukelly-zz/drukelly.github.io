@@ -15,16 +15,13 @@
   <link rel="stylesheet" href="assets/css/game.css">
 </head>
 <body class="bg-dark p-5 text-white-50">
-  <div class="col-6 d-flex align-content-center justify-content-around m-auto">
+  <div class="col-6 d-flex align-content-center justify-content-around mx-auto">
     <div class="hero col">
       <ul id="heroes" class="d-flex list-unstyled"></ul>
       <figure class="text-left">
         <i class="fas fa-question"></i>
       </figure>
       <div class="stats mb-2"></div>
-      <div class="controls hide text-center">
-        <button id="Attack"><i class="far fa-hand-rock"></i> Attack</button>
-      </div>
     </div>
     <div class="col d-flex flex-column justify-content-center text-center">vs.</div>
     <div class="villain col">
@@ -35,7 +32,14 @@
       <div class="stats mb-2"></div>
     </div>
   </div>
-  <ul id="playByPlay"></ul>
+  <div class="row">
+    <div class="controls hide col-5 mx-auto my-4 text-center">
+      <button id="Attack" class="btn btn-primary rounded-lg"><i class="far fa-hand-rock mr-2"></i> Attack</button>
+    </div>
+  </div>
+  <div class="row">
+    <ul id="playByPlay" class="col-5 list-unstyled mx-auto"></ul>
+  </div>
   <script
     src="http://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

@@ -34,8 +34,17 @@ body {
   height: 10px;
   margin: 2px;
   position: absolute;
+  transition: width 500ms ease-out;
 }
 
 .hide {
   display: none;
+}
+
+.playerLabel {
+  color: var(--green);
+}
+
+.enemyLabel {
+  color: var(--red);
 }
