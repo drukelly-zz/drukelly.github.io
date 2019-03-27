@@ -1,0 +1,41 @@
+html,
+body {
+  height: 100%;
+}
+
+.space-mono {
+  font-family: 'Space Mono', monospace;
+}
+
+#heroes img,
+#villains img {
+  width: 64px;
+}
+
+.hero img,
+.villain img {
+  width: 220px;
+}
+
+.stats {
+  font-size: 10pt;
+}
+
+.lifeBar {
+  border-radius: 3px;
+  border: 2px solid var(--white);
+  height: 18px;
+  margin-bottom: .5em;
+  position: relative;
+  width: 100%;
+}
+.lifeBar div {
+  background-color: var(--yellow);
+  height: 10px;
+  margin: 2px;
+  position: absolute;
+}
+
+.hide {
+  display: none;
+}
