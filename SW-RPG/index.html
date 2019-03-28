@@ -17,24 +17,27 @@
 <body class="bg-dark p-5 text-white-50">
   <div class="col-6 d-flex align-content-center justify-content-around mx-auto">
     <div class="hero col">
-      <ul id="heroes" class="d-flex list-unstyled"></ul>
-      <figure class="text-left">
-        <i class="fas fa-question"></i>
+      <figure class="text-center">
+        <i class="display-1 my-5 fas fa-question"></i>
       </figure>
+      <ul id="heroes" class="d-flex justify-content-between list-unstyled"></ul>
       <div class="stats mb-2"></div>
     </div>
-    <div class="col d-flex flex-column justify-content-center text-center">vs.</div>
+    <div class="col d-flex flex-column justify-content-center text-center">
+      <img src="assets/images/versus.png" alt="Versus" class="mx-auto">
+    </div>
     <div class="villain col">
-      <ul id="villains" class="d-flex list-unstyled"></ul>
-      <figure class="text-left">
-        <i class="fas fa-question"></i>
+      <figure class="text-center">
+        <i class="display-1 my-5 fas fa-question"></i>
       </figure>
+      <ul id="villains" class="d-flex justify-content-between list-unstyled"></ul>
       <div class="stats mb-2"></div>
     </div>
   </div>
   <div class="row">
     <div class="controls hide col-5 mx-auto my-4 text-center">
-      <button id="Attack" class="btn btn-primary rounded-lg"><i class="far fa-hand-rock mr-2"></i> Attack</button>
+      <button id="Attack" class="btn btn-primary mr-2 rounded-lg"><i class="far fa-hand-rock mr-2"></i> Attack</button>
+      <button id="Reset" class="hide btn btn-danger rounded-lg"><i class="fas fa-redo-alt"></i> Reset</button>
     </div>
   </div>
   <div class="row">
