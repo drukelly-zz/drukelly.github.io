@@ -99,6 +99,14 @@ const recentWorks = [
     description: "Firebase + Moment.js",
     slug: "train-scheduler",
     format: "png"
+  },
+  {
+    url: "https://www.drukelly.com/Node-MySQL",
+    year: 2019,
+    title: "Node.js + MySQL = Bamazon",
+    description: "Uses Node.js to faciliate user interaction and MySQL as the backend.",
+    slug: "bamazon-customer-demo",
+    format: "gif"
   }
 ];
 
@@ -106,7 +114,7 @@ const newest = recentWorks.sort((a, b) => a.year > b.year ? -1 : 1);
 const target = document.querySelector('.recent-works');
 newest.forEach(work =>
   target.innerHTML+= `<div class="work-item fl w-50 w-25-ns" ontouchstart="this.classList.toggle('hover');"><a ${work.url ? `href=${work.url} target="_blank" ` : "" } class="db aspect-ratio aspect-ratio--1x1 pointer">
-    <div role="img" aria-label="" style="background-image:url(/img/${work.slug}-${work.year}.${work.format ? "png" : "jpg"});" class="front bg-center cover aspect-ratio--object"></div>
+    <div role="img" aria-label="" style="background-image:url(/img/${work.slug}-${work.year}.${work.format ? work.format : "jpg"});" class="front bg-center cover aspect-ratio--object"></div>
     <div class="back bg-light-blue w-100">
       <figure class="ma0 tc">
         <figcaption class="ma0 near-black">
