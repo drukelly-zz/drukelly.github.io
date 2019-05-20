@@ -101,7 +101,7 @@ const recentWorks = [
     format: "png"
   },
   {
-    url: "https://www.drukelly.com/Node-MySQL",
+    url: "https://github.com/drukelly/Node-MySQL",
     year: 2019,
     title: "Node.js + MySQL = Bamazon",
     description: "Uses Node.js to faciliate user interaction and MySQL as the backend.",
