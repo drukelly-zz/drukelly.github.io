@@ -107,6 +107,13 @@ const recentWorks = [
     description: "Uses Node.js to faciliate user interaction and MySQL as the backend.",
     slug: "bamazon-customer-demo",
     format: "gif"
+  },
+  {
+    url: "https://mighty-hamlet-49777.herokuapp.com/",
+    year: 2019,
+    title: "FriendFinder",
+    description: "Express, Heroku, Node.js",
+    slug: "friendfinder",
   }
 ];
 
