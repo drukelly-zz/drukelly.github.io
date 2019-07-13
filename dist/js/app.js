@@ -122,6 +122,14 @@ const recentWorks = [
     description: 'Express, Heroku, knex, MySQL',
     slug: 'mortgage-calc',
     format: 'png'
+  },
+  {
+    url: 'https://mighty-island-87369.herokuapp.com/',
+    year: 2019,
+    title: 'Clicky Game',
+    description: 'ReactJS, Moment.js, Tachyons',
+    slug: 'clicky-game-demo',
+    format: 'gif'
   }
 ]
 
