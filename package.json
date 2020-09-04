@@ -18,7 +18,7 @@
         "autoprefixer": "^9.1.5",
         "concurrently": "^4.0.1",
         "live-server": "^1.2.0",
-        "node-sass": "^4.9.3",
+        "node-sass": "^4.13.1",
         "nodemon": "^1.18.4",
         "postcss": "^7.0.5",
         "postcss-cli": "^6.0.0"
